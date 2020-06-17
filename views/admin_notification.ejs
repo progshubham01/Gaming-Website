@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Online Gaming Website - Admin</title>
+
+  <%- include('partials/head') %>
+
+  <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/select2-bootstrap4.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+	<link rel="stylesheet" href="css/select2-bootstrap.css">
+	<link rel="stylesheet" href="css/gh-pages.css">
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+       <!-- Sidebar -->
+       <%- include('partials/sidebar') %>
+       <!-- End of Sidebar -->
+
+       <!-- Content Wrapper -->
+       <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+        <!-- Topbar -->
+        <%- include('partials/header') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <h3 class="h3 mb-2 text-gray-800">Notifications</h3>
+
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Send Notification</h6>
+            </div>
+            <div classs="card-body">
+
+              <!-- User Options -->
+
+              <div class="row my-4">
+                <form class="col-md-12" action="/admin/notification" method="post">
+                  <div class="form-group col-md-12">
+				            <label for="select2-multiple-input-sm" class="control-label"><h5>User</h5></label>
+				             <select id="user_id" name="id" class="form-control input-sm select2-multiple">
+                       <!-- <option></option> -->
+                     <%
+                     if(user.length){
+                       for(var i = 0;i < user.length;i++) {
+                     %>
+                        <option value="<%=user[i].id%>"><%=user[i].name%></option>
+                    <% }
+                    } %>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="select2-multiple-input-sm" class="control-label"><h5>User</h5></label>
+                     <select id="user_id" name="game_id" class="form-control input-sm select2-multiple">
+               <!-- <option></option> -->
+             <%
+             if(game.length){
+               for(var i = 0;i < game.length;i++) {
+             %>
+                <option value="<%=game[i].id%>"><%=game[i].name%></option>
+            <% }
+            } %>
+            </select>
+          </div>
+
+                   <!--Notifications Area -->
+                   <div class="form-group col-md-12">
+                      <label for="Textarea"><h4> Notifications</h4></label>
+                      <textarea class="form-control rounded-0" id="Textarea" rows="5" name="notification"></textarea>
+                   </div>
+
+                   <div class="form-group col-md-12">
+                    <input class="form-group col-md-12-input" type="radio" name="warning" id="exampleRadios1" value="1">Warning
+                    <label class="form-group col-md-12" for="exampleRadios1">
+                    </label>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary" name="submit">Send Notification</button>
+                  </div>
+                </form>
+             </div>
+
+           </div>
+         </div>
+
+
+       </div>
+        <!-- End of container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <%-include('partials/footer') %>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <%- include('partials/foot') %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#user_id").select2({
+        placeholder: "Select users",
+        closeOnSelect: false,
+        allowClear: true
+      });
+    })
+  </script>
+
+</body>
+
+</html>

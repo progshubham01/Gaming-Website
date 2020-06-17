@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <title>Classic Pool Game</title>
+    <link rel="stylesheet" type="text/css" href="/pool/css/game-layout.css"/>
+    <link rel="shortcut icon" type="image/png" href="/pool/game/assets/sprites/favicon.png"/>
+    <script src="/pool/script/lib/LAB.min.js"></script>
+    <script>
+        $LAB
+                .script('/pool/script/system/Keys.js').wait()
+                .script('/pool/script/system/Color.js').wait()
+                .script('/pool/script/geom/Vector2.js').wait()
+                .script('/pool/script/input/ButtonState.js').wait()
+                .script('/pool/script/input/Keyboard.js').wait()
+                .script('/pool/script/input/Mouse.js').wait()
+                .script('/pool/script/Global.js').wait()
+                .script('/pool/script/Canvas2D.js').wait()
+                .script('/pool/script/game_objects/Score.js').wait()
+                .script('/pool/script/game_objects/Ball.js').wait()
+                .script('/pool/script/game_objects/Stick.js').wait()
+                .script('/pool/script/menu/Label.js').wait()
+                .script('/pool/script/menu/Button.js').wait()
+                .script('/pool/script/menu/Menu.js').wait()
+                .script('/pool/script/menu/MainMenu.js').wait()
+                .script('/pool/script/AI/Opponent.js').wait()
+                .script('/pool/script/AI/AIPolicy.js').wait()
+                .script('/pool/script/AI/AITrainer.js').wait()
+                .script('/pool/script/game_objects/Player.js').wait()
+                .script('/pool/script/GamePolicy.js').wait()
+                .script('/pool/script/GameWorld.js').wait()
+                .script('/pool/script/Game.js').wait()
+                .script('/pool/script/Assets.js').wait(function () {
+                    Game.start('gameArea','screen', 1500, 825);
+                });
+
+    </script>
+    <script>
+        console.log(player1MatchScore,player1TotalScore)
+    </script>
+</head>
+
+<body style = "background-color:black">
+<div id="gameArea">
+    <canvas id="screen" width="2000" height="1000"></canvas>
+</div>
+</body>
+</html>
