@@ -305,7 +305,7 @@ GameOverState.prototype.draw = function(game, dt, ctx) {
     ctx.font="16px Arial";
     ctx.fillText("You scored " + game.score + " and got to level " + game.level, game.width / 2, game.height/2);
     ctx.font="16px Arial";
-    ctx.fillText("Press 'Space' to play again.", game.width / 2, game.height/2 + 40);   
+    ctx.fillText("Press 'Space' to play again.Press Esc to save score", game.width / 2, game.height/2 + 40);   
     //Storing The Values in Local Storage//
     localStorage.setItem('space_invader_score', game.score)
     localStorage.setItem('space_invader_level', game.level)

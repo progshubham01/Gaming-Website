@@ -1,3 +1,6 @@
+var score = 0;
+localStorage.setItem('flower_score',score);
+
 function Flower(x, y) {
   this.x = x;
   this.y = y;
@@ -6,7 +9,14 @@ function Flower(x, y) {
   this.xdir = 1;
 
   this.grow = function() {
-    this.r = this.r + 2;
+    if(this.r > 0){
+    this.r = this.r - 2;
+    }
+    if(this.r == 0){
+      score++;
+      localStorage.setItem('flower_score',score);
+      this.r = -0.000000000001;
+    }
   };
 
   this.shiftDown = function() {

@@ -14,6 +14,29 @@
 </head>
 <body style="background-color:lightgreen">
     <canvas id="bird" width="320" height="500"></canvas>
+    <button id="submit" style="margin-left: 40em;margin-top: 2em;">Save Your Score</button>
     <script src="/flappy/game.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
+
+<script>
+    document.getElementById("submit").onclick = function(){
+    console.log("here")
+    var best= localStorage.getItem('best')
+    $.ajax({
+        type: "POST",
+        data: {score:best},
+        url: '/flappy/score',
+        dataType: "json",
+        success: function(data)
+        {
+            console.log('Success:');
+        }
+     });
+     $(document).ajaxStop(function(){
+        window.location.assign('/index')
+        localStorage.clear();
+   });
+}
+</script>
 </html>

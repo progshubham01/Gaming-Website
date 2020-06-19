@@ -59,7 +59,7 @@
         <h1>Welcome to Online Gaming</h1>
         <h2>We explore <span class="rotating">We play, We learn</span></h2>
         <div class="actions">
-          <a href="#about" class="btn-get-started">Get Strated</a>
+          <a href="#about" class="btn-get-started">Get Started</a>
           <a href="#portfolio" class="btn-services">Our Games</a>
         </div>
       </div>
@@ -372,7 +372,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="member">
-            <div class="pic"><img src="img/team-1.jpg" alt=""></div>
+            <div class="pic"><img src="img/shubham.JPG" alt=""></div>
             <h4>Shubham Chowdhuri</h4>
             <span>Chief Executive Officer</span>
             <div class="social">
@@ -386,7 +386,7 @@
 
         <div class="col-md-3">
           <div class="member">
-            <div class="pic"><img src="img/team-2.jpg" alt=""></div>
+            <div class="pic"><img src="img/anand.jpeg" alt=""></div>
             <h4>Shubham Anand</h4>
             <span>Product Manager</span>
             <div class="social">
@@ -400,7 +400,7 @@
 
         <div class="col-md-3">
           <div class="member">
-            <div class="pic"><img src="img/team-3.jpg" alt=""></div>
+            <div class="pic"><img src="img/rishabh.jpeg" alt=""></div>
             <h4>Rishabh Raj</h4>
             <span>CTO</span>
             <div class="social">
@@ -414,7 +414,7 @@
 
         <div class="col-md-3">
           <div class="member">
-            <div class="pic"><img src="img/team-4.jpg" alt=""></div>
+            <div class="pic"><img src="img/somnath.jpg" alt=""></div>
             <h4>Somnath Acharya</h4>
             <span>Accountant</span>
             <div class="social">
@@ -466,15 +466,11 @@
 
         <div class="col-md-5 col-md-push-2">
           <div class="form">
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="sendmessage" style="display: hidden;">Your message has been sent. Thank you!</div>
             <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
+            <form action="/index/feedback" method="post" role="form" class="contactForm">
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
@@ -482,13 +478,28 @@
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="feedback" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validation"></div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <button id="messagesubmit" type="submit">Send Message</button>
             </form>
           </div>
-        </div>
+        </div><br><br>
+      </div>
+
+      <div class="row"><br><br>
+          <h3 class="section-title">Report Bug</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">Feel free to send us your reviews or contact us to report any issues</p>
+      
+        <form action="/index/report" method="post" role="form" class="contactForm">
+          <div class="form-group">
+            <textarea class="form-control" name="bug" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+            <div class="validation"></div>
+          </div>
+          <button id="messagesubmit" type="submit">Report</button>
+        </form>
+      </div>
 
       </div>
     </div>
@@ -535,6 +546,12 @@
   <script src="js/custom.js"></script>
 
   <script src="contactform/contactform.js"></script>
+
+  <script>
+   $( "#messagesubmit" ).click(function() {
+      document.getElementById("sendmessage").style.display = block;
+    });
+  </script>
 
 
 </body>

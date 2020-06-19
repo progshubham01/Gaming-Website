@@ -4,6 +4,8 @@ const passport = require('passport');
 const session = require('express-session');
 var flash = require('connect-flash');
 
+//Require dotenv For Variables
+require('dotenv').config();
 
 // Routes Being Set Here
 const login = require('./routes/login');

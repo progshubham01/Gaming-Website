@@ -10,7 +10,32 @@
     <script type="text/javascript" src="/flower/flower.js"></script>
     <script type="text/javascript" src="/flower/drop.js"></script>
     <script type="text/javascript" src="/flower/ship.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  
   </head>
-  <body>
+  <body style="background-color: aquamarine;">
   </body>
+  <script>
+     setTimeout(function(){ 
+       alert("Game Over");
+      location.reload(); 
+
+      var score= localStorage.getItem('flower_score')
+      $.ajax({
+          type: "POST",
+          data: {score:score},
+          url: '/flower/score',
+          dataType: "json",
+          success: function(data)
+          {
+              console.log('Success:');
+          }
+       });
+       $(document).ajaxStop(function(){
+          window.location.assign('/index')
+          localStorage.clear();
+     });
+
+    }, 35000);
+  </script>
 </html>

@@ -218,7 +218,6 @@ const gameOver = {
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
         }
     }
-    
 }
 
 // PIPES
@@ -362,3 +361,4 @@ function loop(){
     requestAnimationFrame(loop);
 }
 loop();
+
